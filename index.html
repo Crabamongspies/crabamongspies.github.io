@@ -5,37 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crabamongspies</title>
     <style>
-        /* Define custom font using @font-face */
         @font-face {
             font-family: 'CustomFont';
             src: url('font.ttf') format('truetype');
         }
 
-        /* Apply the custom font as default */
         body {
             font-family: 'CustomFont', 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
-            background-color: #000000; /* Black background */
-            color: #00FF00; /* Hacker green text color */
+            background-color: #000000;
+            color: #00FF00;
             margin: 0;
             padding: 0;
-            position: relative; /* Needed for positioning iframe */
+            position: relative;
         }
 
         a {
-            color: blue; /* Make email link blue */
-            text-decoration: none; /* Optional: removes underline from link */
+            color: blue;
+            text-decoration: none;
         }
 
         a.purple {
-            color: purple; /* Make the new link text purple */
-            font-weight: bold; /* Make the link text bold */
+            color: purple;
+            font-weight: bold;
         }
 
         img {
             vertical-align: middle;
         }
 
-        /* Add the iframe to the bottom-right corner */
         iframe {
             position: absolute;
             bottom: 0;
@@ -46,34 +43,34 @@
             background-color: transparent;
         }
 
-        /* Styling for the categories */
         .category {
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 0.96em;
             font-weight: bold;
         }
 
         .spacer {
             margin-top: 10px;
         }
+
+        p, h2 {
+            font-size: 0.8em;
+        }
     </style>
 </head>
 <body>
     <h2>Crabamongspies</h2>
-    <p style="font-size: 1.0em;">If you need help with my work contact me by&nbsp;<img style="width: 20px; height: 20px;" src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" /><span style="font-size: 1em;">&nbsp;</span><span style="font-size: 1em;">a</span><span style="font-size: 1em;">nd </span><a style="font-size: 1em;" href="mailto:crabamongspies@gmail.com">email</a></p>
-    <p style="font-size: 1.0em;">This is my website dedicated to my artwork and video games</p>
-    <p style="font-size: 0.8em;"><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
+    <p>If you need help with my work contact me by&nbsp;<img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" /><span>and </span><a href="mailto:crabamongspies@gmail.com">email</a></p>
+    <p>This is my website dedicated to my artwork and video games</p>
+    <p><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
 
-    <!-- Games Category -->
     <div class="category">Games</div>
-    <p style="font-size: 1.0em;"><a class="purple" href="https://crabamongspies.github.io/game/">Will of the Healer</a></p>
+    <p><a class="purple" href="https://crabamongspies.github.io/game/">Will of the Healer</a></p>
 
-    <!-- Artwork Category -->
     <div class="category">Artwork</div>
-    <p style="font-size: 1.0em;"><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
-    <p style="font-size: 1.0em;"><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
+    <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
+    <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
-    <!-- Embed ping.html in the bottom-right corner -->
     <iframe src="ping.html" title="Ping" frameborder="0"></iframe>
 </body>
 </html>
