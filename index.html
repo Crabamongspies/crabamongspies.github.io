@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crabamongspies</title>
     <style>
-        /* Apply Terminal font as default, Pixelite as backup */
+        /* Define custom font using @font-face */
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('font.ttf') format('truetype');
+        }
+
+        /* Apply the custom font as default */
         body {
-            font-family: 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
+            font-family: 'CustomFont', 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
             background-color: #000000; /* Black background */
             color: #00FF00; /* Hacker green text color */
             margin: 0;
