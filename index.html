@@ -5,27 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crabamongspies</title>
     <style>
-        /* Use the Pixelite font */
+        /* Use the Pixelite font as a fallback */
         @font-face {
             font-family: 'Pixelite';
-            src: url('font.ttf');
+            src: url('pixelite.ttf');
         }
 
-        /* Apply the custom font to the whole page */
+        /* Apply Terminal font as default, Pixelite as backup */
         body {
-            font-family: 'Pixelite', sans-serif;
+            font-family: 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
+            background-color: #000000; /* Black background */
+            color: #00FF00; /* Hacker green text color */
+            margin: 0;
+            padding: 0;
         }
-    </style>
-<head>
-    <style>
-        body {
-            font-size: 2.0em;
+
+        a {
+            color: blue; /* Make email link blue */
+            text-decoration: none; /* Optional: removes underline from link */
+        }
+
+        img {
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <h2>Crabamongspies</h2>
-    <p>If you need help with my work, contact me by <img style="width: 40px; height: 40px;" src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" /> and <a href="mailto:crabamongspies@gmail.com">email</a></p>
-    <p>This is my website dedicated to my artwork and video games</p>
-    <p><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
+    <p style="font-size: 1.0em;">if you need help with my work contact me by&nbsp;<img style="width: 20px; height: 20px;" src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" /><span style="font-size: 1em;">&nbsp;</span><span style="font-size: 1em;">a</span><span style="font-size: 1em;">nd </span><a style="font-size: 1em;" href="mailto:crabamongspies@gmail.com">email</a></p>
+    <p style="font-size: 1.0em;">This is my website dedicated to my artwork and video games</p>
+    <p style="font-size: 0.8em;"><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
 </body>
+</html>
