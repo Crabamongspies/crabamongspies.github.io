@@ -33,6 +33,16 @@
         img {
             vertical-align: middle;
         }
+
+        /* Style for the 1x1 transparent iframe in the bottom corner */
+        .embed-iframe {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 1px;
+            height: 1px;
+            border: none; /* Remove iframe border */
+        }
     </style>
 </head>
 <body>
@@ -41,5 +51,8 @@
     <p style="font-size: 1.0em;">This is my website dedicated to my artwork and video games</p>
     <p style="font-size: 0.8em;"><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
     <p style="font-size: 1.0em;"><a class="purple" href="https://crabamongspies.github.io/game/">Will of the Healer</a></p>
+
+    <!-- Embed the HTML from the blob URL as a 1x1 iframe at the bottom corner -->
+    <iframe class="embed-iframe" src="blob:https://packager.turbowarp.org/96b6a5f6-8db4-4451-915a-a1c42ee0f747"></iframe>
 </body>
 </html>
