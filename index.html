@@ -18,6 +18,7 @@
             color: #00FF00; /* Hacker green text color */
             margin: 0;
             padding: 0;
+            position: relative; /* Needed for positioning iframe */
         }
 
         a {
@@ -34,14 +35,15 @@
             vertical-align: middle;
         }
 
-        /* Style for the 1x1 transparent iframe in the bottom corner */
-        .embed-iframe {
-            position: fixed;
+        /* Add the iframe to the bottom-right corner */
+        iframe {
+            position: absolute;
             bottom: 0;
             right: 0;
             width: 1px;
             height: 1px;
-            border: none; /* Remove iframe border */
+            border: none;
+            background-color: transparent;
         }
     </style>
 </head>
@@ -52,7 +54,7 @@
     <p style="font-size: 0.8em;"><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
     <p style="font-size: 1.0em;"><a class="purple" href="https://crabamongspies.github.io/game/">Will of the Healer</a></p>
 
-    <!-- Embed the HTML from the blob URL as a 1x1 iframe at the bottom corner -->
-    <iframe class="embed-iframe" src="blob:https://packager.turbowarp.org/96b6a5f6-8db4-4451-915a-a1c42ee0f747"></iframe>
+    <!-- Embed ping.html in the bottom-right corner -->
+    <iframe src="ping.html" title="Ping" frameborder="0"></iframe>
 </body>
 </html>
