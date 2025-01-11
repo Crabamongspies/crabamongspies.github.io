@@ -60,17 +60,9 @@
 
     <script>
         // Check if the page was redirected back using a flag in the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const redirected = urlParams.get('redirected');
-
         // If not redirected, allow the ping
-        if (!redirected) {
             // Trigger the ping by setting the iframe source
-            document.getElementById('pingFrame').src = 'ping.html';
 
-            // Optionally add the redirected flag to avoid multiple pings
-            const newUrl = window.location.origin + window.location.pathname + '?redirected=true';
-            window.history.replaceState({}, '', newUrl);
         }
     </script>
 </body>
