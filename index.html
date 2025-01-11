@@ -61,9 +61,9 @@
     <script>
         // Check if the page was redirected back using a flag in the URL
         // If not redirected, allow the ping
-            // Trigger the ping by setting the iframe source
-
-        }
+        // Trigger the ping by setting the iframe source
+        var pingFrame = document.getElementById('pingFrame');
+        pingFrame.src = 'about:blank';  // Update the iframe source to perform the ping
     </script>
 </body>
 </html>
