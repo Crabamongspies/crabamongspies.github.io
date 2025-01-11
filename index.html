@@ -12,41 +12,48 @@
 
         body {
             font-family: 'Terminus';
-            font-size: 16px; /* Default size for body text */
+            font-size: 12px; /* Use the smallest font size for pixelation */
             background-color: #000000;
             color: #00FF00;
             margin: 0;
             padding: 0;
             position: relative;
+            transform: scale(2); /* Scale up to make the font readable, maintaining pixelation */
+            transform-origin: top left; /* Keep the scaling from top left */
         }
 
         h2 {
-            font-size: 24px; /* Corresponds to 24 px bitmap */
+            font-size: 12px; /* Keep base size small */
             margin: 0;
             padding: 10px 0;
+            transform: scale(2); /* Apply same scaling for header */
         }
 
         p {
-            font-size: 16px; /* Corresponds to 16 px bitmap */
+            font-size: 12px; /* Keep base size small */
             margin: 5px 0;
+            transform: scale(2); /* Apply scaling for paragraph */
         }
 
         .category {
-            font-size: 18px; /* Corresponds to 18 px bitmap */
+            font-size: 12px; /* Keep base size small */
             font-weight: bold;
             margin-top: 20px;
+            transform: scale(2); /* Scaling for category section */
         }
 
         a {
             color: blue;
             text-decoration: none;
-            font-size: 16px; /* Matches general text */
+            font-size: 12px; /* Small size for pixelation */
+            transform: scale(2); /* Scaling for links */
         }
 
         a.purple {
             color: purple;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 12px;
+            transform: scale(2); /* Scaling for purple links */
         }
 
         iframe {
