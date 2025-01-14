@@ -16,28 +16,43 @@
             background-color: #3E4637;
             margin: 0;
             padding: 0;
-            height: 100vh; /* Full height for positioning reference */
-            overflow: hidden; /* Prevent scrolling */
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start; /* Align containers to the left */
+            padding: 20px;
         }
 
         .text-container {
-            position: absolute;
-            top: 10px; /* Distance from the top */
-            left: 10px; /* Distance from the left */
-            padding: 2em; /* Space inside the container */
-            background-color: #4C5844; /* Solid background color */
-            display: inline-block; /* Shrink-wrap the content */
-            border-radius: 8px; /* Optional: rounded corners for aesthetics */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: add a shadow */
-            text-align: center; /* Center-align the content inside */
+            width: 300px; /* Fixed width for the text container */
+            position: relative;
+            padding: 2em;
+            background-color: #4C5844;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-right: 20px; /* Space between text container and image container */
+            flex-shrink: 0; /* Prevent shrinking of the text container */
+        }
+
+        .image-container {
+            flex: 1;
+            padding: 2em;
+            background-color: #4C5844;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: none; /* Hide the image container initially */
+            overflow-y: auto;
+            max-height: 100vh;
         }
 
         .text-container h2,
         .text-container p,
         .text-container a,
         .text-container .category {
-            margin: 0.5em 0; /* Spacing between elements */
-            color: #ffffff; /* White text color */
+            margin: 0.5em 0;
+            color: #ffffff;
         }
 
         .text-container a {
@@ -46,6 +61,13 @@
 
         .text-container a.purple {
             color: black;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1em;
         }
     </style>
 </head>
