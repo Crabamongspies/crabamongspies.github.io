@@ -11,59 +11,56 @@
         }
 
         body {
-            font-family: 'Terminus';
-            font-size: 16px; /* Default size for body text */
-            background-color: #000000;
-            color: #00FF00;
+            font-family: 'Terminus', sans-serif;
+            font-size: 16px;
+            background-color: #3E4637;
             margin: 0;
             padding: 0;
-            position: relative;
+            height: 100vh; /* Full height for positioning reference */
+            overflow: hidden; /* Prevent scrolling */
         }
 
-        a {
-            color: blue;
-            text-decoration: none;
-            font-size: 16px; /* Matches general text */
-        }
-
-        a.purple {
-            color: purple;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        iframe {
+        .text-container {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 1px;
-            height: 1px;
-            border: none;
-            background-color: transparent;
+            top: 10px; /* Distance from the top */
+            left: 10px; /* Distance from the left */
+            padding: 2em; /* Space inside the container */
+            background-color: #4C5844; /* Solid background color */
+            display: inline-block; /* Shrink-wrap the content */
+            border-radius: 8px; /* Optional: rounded corners for aesthetics */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: add a shadow */
+            text-align: center; /* Center-align the content inside */
+        }
+
+        .text-container h2,
+        .text-container p,
+        .text-container a,
+        .text-container .category {
+            margin: 0.5em 0; /* Spacing between elements */
+            color: #ffffff; /* White text color */
+        }
+
+        .text-container a {
+            text-decoration: none;
+        }
+
+        .text-container a.purple {
+            color: black;
         }
     </style>
 </head>
 <body>
-    <h2>Crabamongspies</h2>
-    <p>If you need help with my work contact me on discord or <a href="mailto:crabamongspies@gmail.com">email</a></p>
-    <p>This is my website dedicated to my artwork and video games</p>
-    <p><strong>Please</strong> do not <strong>claim my work as yours</strong></p>
+    <div class="text-container">
+        <h2>Crabamongspies</h2>
+        <p>If you need help with my work contact me on Discord or <a href="mailto:crabamongspies@gmail.com">E-✉️</a></p>
+        <p>This is my website dedicated to my artwork and video games</p>
 
-    <div class="category">Games</div>
-    <p><a class="purple" href="https://crabamongspies.github.io/archive/">Archive</a></p>
+        <div class="category">Games</div>
+        <p><a class="purple" href="https://crabamongspies.github.io/archive/">Archive</a></p>
 
-    <div class="category">Artwork</div>
-    <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
-    <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
-
-    <iframe id="pingFrame" src="about:blank" title="Ping" frameborder="0"></iframe>
-
-    <script>
-        // Check if the page was redirected back using a flag in the URL
-        // If not redirected, allow the ping
-        // Trigger the ping by setting the iframe source
-        var pingFrame = document.getElementById('pingFrame');
-        pingFrame.src = 'about:blank';  // Update the iframe source to perform the ping
-    </script>
+        <div class="category">Artwork</div>
+        <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
+        <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
+    </div>
 </body>
 </html>
