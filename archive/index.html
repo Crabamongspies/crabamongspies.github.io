@@ -12,10 +12,38 @@
 
         body {
             font-family: 'CustomFont', 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
-            background-color: #000000;
+            background-color: #3E4637;
             color: #00FF00;
             margin: 0;
             padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start; /* Align containers to the left */
+            padding: 20px;
+        }
+
+        .text-container {
+            width: 300px; /* Fixed width for the text container */
+            position: relative;
+            padding: 2em;
+            background-color: #4C5844;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #4C5844; /* Updated box shadow color */
+            text-align: center;
+            margin-right: 20px; /* Space between text container and image container */
+            flex-shrink: 0; /* Prevent shrinking of the text container */
+        }
+
+        .category {
+            margin-top: 20px;
+            font-size: 0.96em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 0.8em;
         }
 
         a {
@@ -28,23 +56,14 @@
             font-weight: bold;
             margin-top: 20px;
             font-size: 0.96em;
-            font-weight: bold;
-        }
-
-        .category {
-            margin-top: 20px;
-            font-size: 0.96em;
-            font-weight: bold;
-        }
-
-        p {
-            font-size: 0.8em;
         }
     </style>
 </head>
 <body>
-    <p><a class="category" href="https://crabamongspies.github.io/">Home</a></p>
-    <div class="category">Archive</div>
-    <p><a class="purple" href="/archive/boru.html">The legend of Boru - Failed project</a></p>
+    <div class="text-container">
+        <p><a class="category" href="https://crabamongspies.github.io/">Home</a></p>
+        <div class="category">Archive</div>
+        <p><a class="purple" href="/archive/boru.html">The legend of Boru - Failed project</a></p>
+    </div>
 </body>
 </html>
