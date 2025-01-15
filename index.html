@@ -69,6 +69,10 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 1em;
         }
+
+        #visit-count {
+            display: none; /* Hide the visit count initially */
+        }
     </style>
 </head>
 <body>
@@ -83,6 +87,28 @@
         <div class="category">Artwork</div>
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
+
+        <p id="visit-count">You've visited my site 0 times</p> <!-- Visit count placeholder -->
     </div>
+
+    <script>
+        // Check if the visit count already exists in localStorage
+        let visitCount = localStorage.getItem('visitCount');
+        if (!visitCount) {
+            visitCount = 0;  // Initialize the visit count if it's the first visit
+        }
+
+        // Increment the visit count by 1
+        visitCount++;
+
+        // Store the updated visit count back to localStorage
+        localStorage.setItem('visitCount', visitCount);
+
+        // Show the visit count only after the second visit
+        if (visitCount > 1) {
+            document.getElementById('visit-count').textContent = `You've visited my site ${visitCount} times`;
+            document.getElementById('visit-count').style.display = 'block'; // Display the message
+        }
+    </script>
 </body>
 </html>
