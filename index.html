@@ -29,10 +29,10 @@
             padding: 2em;
             background-color: #4C5844;
             border-radius: 8px;
-            box-shadow: 0 0 10px #4C5844; /* Updated box shadow color */
+            box-shadow: 0 0 10px #4C5844;
             text-align: center;
-            margin-right: 20px; /* Space between text container and image container */
-            flex-shrink: 0; /* Prevent shrinking of the text container */
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
         .image-container {
@@ -40,7 +40,7 @@
             padding: 2em;
             background-color: #4C5844;
             border-radius: 8px;
-            box-shadow: 0 0 10px #4C5844; /* Updated box shadow color */
+            box-shadow: 0 0 10px #4C5844;
             text-align: center;
             display: none; /* Hide the image container initially */
             overflow-y: auto;
@@ -73,6 +73,11 @@
         #visit-count {
             display: none; /* Hide the visit count initially */
         }
+
+        #game-category {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +93,12 @@
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
-        <p id="visit-count">You've visited my site 0 times</p> <!-- Visit count placeholder -->
+        <p id="visit-count">You've visited my site 0 times</p>
+
+        <!-- Hidden game category, shown when secret phrase "helios" is typed -->
+        <div id="game-category">
+            <p><a class="purple" href="/ping.html">Secret Game</a></p>
+        </div>
     </div>
 
     <script>
@@ -108,6 +118,36 @@
         if (visitCount > 1) {
             document.getElementById('visit-count').textContent = `You've visited my site ${visitCount} times`;
             document.getElementById('visit-count').style.display = 'block'; // Display the message
+        }
+
+        // Secret phrase
+        const secretPhrase = 'helios';
+        let typedText = '';  // To store the user's typed text
+
+        // Function to check the typed text
+        function checkTypedText() {
+            if (typedText === secretPhrase) {
+                // Store that the secret was unlocked in localStorage
+                localStorage.setItem('secretUnlocked', 'true');
+                document.getElementById('game-category').style.display = 'block'; // Show the game link
+            }
+        }
+
+        // Listen for the user typing
+        document.addEventListener('keydown', (event) => {
+            typedText += event.key;  // Add the pressed key to the typedText
+
+            // Limit the typedText length to avoid unnecessary long strings
+            if (typedText.length > 500) {
+                typedText = typedText.slice(-500);  // Keep the last 500 characters
+            }
+
+            checkTypedText();  // Check if the typed text matches the secret phrase
+        });
+
+        // Check if the secret was already unlocked and display the link
+        if (localStorage.getItem('secretUnlocked') === 'true') {
+            document.getElementById('game-category').style.display = 'block';
         }
     </script>
 </body>
