@@ -19,12 +19,12 @@
             height: 100vh;
             overflow: hidden;
             display: flex;
-            justify-content: flex-start; /* Align containers to the left */
+            justify-content: flex-start; 
             padding: 20px;
         }
 
         .text-container {
-            width: 300px; /* Fixed width for the text container */
+            width: 300px; 
             position: relative;
             padding: 2em;
             background-color: #4C5844;
@@ -42,7 +42,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px #4C5844;
             text-align: center;
-            display: none; /* Hide the image container initially */
+            display: none; 
             overflow-y: auto;
             max-height: 100vh;
         }
@@ -71,11 +71,11 @@
         }
 
         #visit-count {
-            display: none; /* Hide the visit count initially */
+            display: none; 
         }
 
         #game-category {
-            display: none; /* Initially hidden */
+            display: none; 
             margin-top: 20px;
         }
     </style>
@@ -95,36 +95,30 @@
 
         <p id="visit-count">You've visited my site 0 times</p>
 
-        <!-- Hidden game category, shown when secret phrase "helios" is typed -->
         <div id="game-category">
             <p><a class="purple" href="https://crabamongspies.github.io/helios/">The Offering</a></p>
+            <p><a class="purple" href="https://crabamongspies.github.io/game/">Will Of The Healer</a></p>
         </div>
     </div>
 
     <script>
-        // Check if the visit count already exists in localStorage
         let visitCount = localStorage.getItem('visitCount');
         if (!visitCount) {
             visitCount = 0;  // Initialize the visit count if it's the first visit
         }
 
-        // Increment the visit count by 1
         visitCount++;
 
-        // Store the updated visit count back to localStorage
         localStorage.setItem('visitCount', visitCount);
 
-        // Show the visit count only after the second visit
         if (visitCount > 1) {
             document.getElementById('visit-count').textContent = `You've visited my site ${visitCount} times`;
             document.getElementById('visit-count').style.display = 'block'; // Display the message
         }
 
-        // Secret phrase
         const secretPhrase = 'healer';
         let typedText = '';  // To store the user's typed text
 
-        // Function to check the typed text
         function checkTypedText() {
             if (typedText === secretPhrase) {
                 // Store that the secret was unlocked in localStorage
@@ -133,7 +127,6 @@
             }
         }
 
-        // Listen for the user typing
         document.addEventListener('keydown', (event) => {
             typedText += event.key;  // Add the pressed key to the typedText
 
@@ -145,7 +138,6 @@
             checkTypedText();  // Check if the typed text matches the secret phrase
         });
 
-        // Check if the secret was already unlocked and display the link
         if (localStorage.getItem('secretUnlocked') === 'true') {
             document.getElementById('game-category').style.display = 'block';
         }
