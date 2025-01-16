@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healer</title>
+    <style>
+        @font-face {
+            font-family: 'Terminus';
+            src: url('font.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Terminus', sans-serif;
+            font-size: 16px;
+            background-color: #3E4637;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ffffff;
+        }
+
+        .text-display {
+            width: 100vw;
+            height: 100vh;
+            padding: 1em;
+            background-color: #000000;
+            border-radius: 0;
+            box-shadow: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-display img {
+            width: 20%; /* Doubles the image width */
+            height: 20%; /* Doubles the image height */
+            object-fit: contain; /* Ensures the image scales properly */
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-display" id="text-display">
+        <img src="hando.png" alt="Hando">
+    </div>
+
+    <audio id="audio" autoplay loop>
+        <source src="music.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Randomly change the page title to "Healer" with 1 in 10 chance
+        if (Math.random() < 0.1) {
+            document.title = 'Helios'; // Change the page title in the tab
+        }
+
+        // Optionally, you can control the audio programmatically
+        const audio = document.getElementById('audio');
+        audio.play();
+    </script>
+</body>
+</html>

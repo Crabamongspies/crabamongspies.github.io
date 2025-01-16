@@ -97,7 +97,7 @@
 
         <!-- Hidden game category, shown when secret phrase "helios" is typed -->
         <div id="game-category">
-            <p><a class="purple" href="/ping.html">Secret Game</a></p>
+            <p><a class="purple" href="https://crabamongspies.github.io/helios/">The Offering</a></p>
         </div>
     </div>
 
@@ -121,7 +121,7 @@
         }
 
         // Secret phrase
-        const secretPhrase = 'helios';
+        const secretPhrase = 'healer';
         let typedText = '';  // To store the user's typed text
 
         // Function to check the typed text
@@ -139,7 +139,7 @@
 
             // Limit the typedText length to avoid unnecessary long strings
             if (typedText.length > 500) {
-                typedText = typedText.slice(-500);  // Keep the last 500 characters
+                typedText = typedText.slice(-7);  // Keep the last 500 characters
             }
 
             checkTypedText();  // Check if the typed text matches the secret phrase
