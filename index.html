@@ -23,8 +23,7 @@
             padding: 20px;
         }
 
-        .text-container,
-        .motd-container {
+        .text-container {
             width: 300px;
             position: relative;
             padding: 2em;
@@ -35,16 +34,11 @@
             flex-shrink: 0;
         }
 
-        .text-container {
-            margin-right: 20px;
-        }
-
         .text-container h2,
         .text-container p,
         .text-container a,
         .text-container .category,
-        .motd-container h2,
-        .motd-container p {
+        .text-container #motd {
             margin: 0.5em 0;
             color: #ffffff;
         }
@@ -57,19 +51,7 @@
             color: black;
         }
 
-        .motd-container h2 {
-            font-size: 1.5em;
-            margin-bottom: 1em;
-        }
-
-        .motd-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .motd-container p {
+        .text-container #motd {
             background-color: #5A6B50;
             padding: 10px;
             border-radius: 5px;
@@ -93,11 +75,8 @@
         <div class="category">Artwork</div>
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
-    </div>
 
-    <!-- Message of the Day Box -->
-    <div class="motd-container">
-        <h2>Message of the Day</h2>
+        <!-- Message of the Day -->
         <p id="motd">Loading message of the day...</p>
     </div>
 
