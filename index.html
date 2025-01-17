@@ -38,7 +38,8 @@
         .text-container p,
         .text-container a,
         .text-container .category,
-        .text-container #motd {
+        .text-container #motd,
+        .text-container #visit-count {
             margin: 0.5em 0;
             color: #ffffff;
         }
@@ -60,6 +61,11 @@
             width: 100%;
             text-align: center;
         }
+
+        #game-category {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -76,21 +82,70 @@
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
+        <!-- Visit Count -->
+        <p id="visit-count">You've visited my site 0 times</p>
+
+        <!-- Hidden Game Section -->
+        <div id="game-category">
+            <p><a>DEV</a></p>
+            <p><a class="purple" href="https://crabamongspies.github.io/game/">Will Of The Healer</a></p>
+            <p><a class="purple" href="https://crabamongspies.github.io/water/">Water Simulation Demo</a></p>
+        </div>
+
         <!-- Message of the Day -->
         <p id="motd">Loading message of the day...</p>
     </div>
 
     <script>
-        // Fetch the MOTD JSON from Pastebin (replace 'your-paste-id' with your actual raw Pastebin URL)
+        // Visit counter logic
+        let visitCount = localStorage.getItem('visitCount');
+        if (!visitCount) {
+            visitCount = 0;
+        }
+
+        visitCount++;
+
+        localStorage.setItem('visitCount', visitCount);
+
+        if (visitCount > 1) {
+            document.getElementById('visit-count').textContent = `You've visited my site ${visitCount} times`;
+        }
+
+        // "Healer" code logic
+        const secretPhrase = 'healer';
+        let typedText = ''; 
+
+        function checkTypedText() {
+            if (typedText === secretPhrase) {
+                localStorage.setItem('secretUnlocked', 'true');
+                document.getElementById('game-category').style.display = 'block';
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            typedText += event.key;
+
+            if (typedText.length > 500) {
+                typedText = typedText.slice(-7);
+            }
+
+            checkTypedText();
+        });
+
+        if (localStorage.getItem('secretUnlocked') === 'true') {
+            document.getElementById('game-category').style.display = 'block';
+        }
+
+        // Fetch the MOTD JSON
         fetch('https://gist.githubusercontent.com/Crabamongspies/7004a2c7c46cdf3855c2b230dfc7b755/raw/51be6223ecc990828aa6c3c9288e46776956ce4a/motd.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch MOTD');
                 }
-                return response.json(); // Parse the response as JSON
+                return response.json();
             })
             .then(data => {
-                document.getElementById('motd').textContent = data.message; // Update the MOTD element
+                document.getElementById('motd').textContent = data.message;
             })
             .catch(error => {
                 console.error('Error fetching MOTD:', error);
