@@ -19,27 +19,38 @@
             height: 100vh;
             overflow: hidden;
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-start; 
             padding: 20px;
         }
 
         .text-container {
-            width: 300px;
+            width: 300px; 
             position: relative;
             padding: 2em;
             background-color: #4C5844;
             border-radius: 8px;
             box-shadow: 0 0 10px #4C5844;
             text-align: center;
+            margin-right: 20px;
             flex-shrink: 0;
+        }
+
+        .image-container {
+            flex: 1;
+            padding: 2em;
+            background-color: #4C5844;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #4C5844;
+            text-align: center;
+            display: none; 
+            overflow-y: auto;
+            max-height: 100vh;
         }
 
         .text-container h2,
         .text-container p,
         .text-container a,
-        .text-container .category,
-        .text-container #motd,
-        .text-container #visit-count {
+        .text-container .category {
             margin: 0.5em 0;
             color: #ffffff;
         }
@@ -52,24 +63,24 @@
             color: black;
         }
 
-        .text-container #motd {
-            background-color: #5A6B50;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px #3A4B30;
-            color: white;
+        .image-container img {
             width: 100%;
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1em;
+        }
+
+        #visit-count {
+            display: none; 
         }
 
         #game-category {
-            display: none;
+            display: none; 
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Main Content Box -->
     <div class="text-container">
         <h2>Crabamongspies</h2>
         <p>If you need help with my work contact me on Discord or <a href="mailto:crabamongspies@gmail.com">E-✉️</a></p>
@@ -82,25 +93,19 @@
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
-        <!-- Visit Count -->
         <p id="visit-count">You've visited my site 0 times</p>
 
-        <!-- Hidden Game Section -->
         <div id="game-category">
             <p><a>DEV</a></p>
             <p><a class="purple" href="https://crabamongspies.github.io/game/">Will Of The Healer</a></p>
             <p><a class="purple" href="https://crabamongspies.github.io/water/">Water Simulation Demo</a></p>
         </div>
-
-        <!-- Message of the Day -->
-        <p id="motd">Loading message of the day...</p>
     </div>
 
     <script>
-        // Visit counter logic
         let visitCount = localStorage.getItem('visitCount');
         if (!visitCount) {
-            visitCount = 0;
+            visitCount = 0;  // Initialize the visit count if it's the first visit
         }
 
         visitCount++;
@@ -108,49 +113,35 @@
         localStorage.setItem('visitCount', visitCount);
 
         if (visitCount > 1) {
-            document.getElementById('visit-count').textContent = `You've visited my site ${visitCount} times`;
+            document.getElementById('visit-count').textContent = You've visited my site ${visitCount} times;
+            document.getElementById('visit-count').style.display = 'block'; // Display the message
         }
 
-        // "Healer" code logic
         const secretPhrase = 'healer';
-        let typedText = ''; 
+        let typedText = '';  // To store the user's typed text
 
         function checkTypedText() {
             if (typedText === secretPhrase) {
+                // Store that the secret was unlocked in localStorage
                 localStorage.setItem('secretUnlocked', 'true');
-                document.getElementById('game-category').style.display = 'block';
+                document.getElementById('game-category').style.display = 'block'; // Show the game link
             }
         }
 
         document.addEventListener('keydown', (event) => {
-            typedText += event.key;
+            typedText += event.key;  // Add the pressed key to the typedText
 
+            // Limit the typedText length to avoid unnecessary long strings
             if (typedText.length > 500) {
-                typedText = typedText.slice(-7);
+                typedText = typedText.slice(-7);  // Keep the last 500 characters
             }
 
-            checkTypedText();
+            checkTypedText();  // Check if the typed text matches the secret phrase
         });
 
         if (localStorage.getItem('secretUnlocked') === 'true') {
             document.getElementById('game-category').style.display = 'block';
         }
-
-        // Fetch the MOTD JSON
-        fetch('https://gist.githubusercontent.com/Crabamongspies/7004a2c7c46cdf3855c2b230dfc7b755/raw/51be6223ecc990828aa6c3c9288e46776956ce4a/motd.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch MOTD');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('motd').textContent = data.message;
-            })
-            .catch(error => {
-                console.error('Error fetching MOTD:', error);
-                document.getElementById('motd').textContent = 'Error loading message of the day.';
-            });
     </script>
 </body>
 </html>
