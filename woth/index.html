@@ -32,13 +32,30 @@
       #game, #controller {
         z-index: 1;
       }
+
+      /* Style for control instructions */
+      #controls {
+        font-family: 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
+        color: #00FF00;
+        font-weight: bold;
+        position: fixed;
+        top: 40px;
+        left: 10px;
+        font-size: 1em;
+        z-index: 9999; /* Ensure it appears above other content */
+      }
     </style>
   </head>
   <body>
     <a id="home-link" href="https://crabamongspies.github.io/">Home</a> <!-- Home link -->
-    <a id="home-link">Z - Select</a>
-    <a id="home-link">X - Secondary Select</a>
-    <a id="home-link">use arrow keys to move</a>
+
+    <!-- Control instructions below the Home link -->
+    <div id="controls">
+      <p>Z - Select</p>
+      <p>X - Secondary Select</p>
+      <p>Use arrow keys to move</p>
+    </div>
+
     <div id="game">
       <canvas id="mainCanvas" width="320" height="288">No Canvas Support</canvas>
     </div>
