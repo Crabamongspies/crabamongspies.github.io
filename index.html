@@ -70,10 +70,6 @@
             margin-bottom: 1em;
         }
 
-        #visit-count {
-            display: none; 
-        }
-
         #game-category {
             display: none; 
             margin-top: 20px;
@@ -93,55 +89,8 @@
         <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
         <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
-        <p id="visit-count">You've visited my site 0 times</p>
-
-        <div id="game-category">
-            <p><a>DEV</a></p>
-            <p><a class="purple" href="https://crabamongspies.github.io/game/">Will Of The Healer</a></p>
-            <p><a class="purple" href="https://crabamongspies.github.io/water/">Water Simulation Demo</a></p>
+        <div class="category" href="https://crabamongspies.github.io/game/">Will Of The Healer</div>
         </div>
     </div>
-
-    <script>
-        let visitCount = localStorage.getItem('visitCount');
-        if (!visitCount) {
-            visitCount = 0;  // Initialize the visit count if it's the first visit
-        }
-
-        visitCount++;
-
-        localStorage.setItem('visitCount', visitCount);
-
-        if (visitCount > 1) {
-            document.getElementById('visit-count').textContent = You've visited my site ${visitCount} times;
-            document.getElementById('visit-count').style.display = 'block'; // Display the message
-        }
-
-        const secretPhrase = 'healer';
-        let typedText = '';  // To store the user's typed text
-
-        function checkTypedText() {
-            if (typedText === secretPhrase) {
-                // Store that the secret was unlocked in localStorage
-                localStorage.setItem('secretUnlocked', 'true');
-                document.getElementById('game-category').style.display = 'block'; // Show the game link
-            }
-        }
-
-        document.addEventListener('keydown', (event) => {
-            typedText += event.key;  // Add the pressed key to the typedText
-
-            // Limit the typedText length to avoid unnecessary long strings
-            if (typedText.length > 500) {
-                typedText = typedText.slice(-7);  // Keep the last 500 characters
-            }
-
-            checkTypedText();  // Check if the typed text matches the secret phrase
-        });
-
-        if (localStorage.getItem('secretUnlocked') === 'true') {
-            document.getElementById('game-category').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
