@@ -44,6 +44,13 @@
         font-size: 1em;
         z-index: 9999; /* Ensure it appears above other content */
       }
+
+      /* Hide control hint on mobile */
+      @media (max-width: 768px) {
+        #controls {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
