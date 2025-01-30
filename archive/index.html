@@ -25,9 +25,83 @@
             font-family: 'CustomFont';
             src: url('font.ttf') format('truetype');
         }
+
+        /* Home link in the top left */
+        #homeLink {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 32px;
+            font-family: 'CustomFont', monospace;
+            color: white;
+            text-decoration: none;
+            z-index: 20; /* Ensure the link is on top of other content */
+        }
+
+        #homeLink:hover {
+            color: #62BAE0; /* Hover effect */
+        }
+
+        /* Styling the content */
+        #centerContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'CustomFont', monospace;
+            font-size: 24px;
+            color: white;
+            z-index: 10;
+            text-align: center;
+            line-height: 1.05;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .black {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        .black.archive {
+            font-size: 24px;
+        }
+
+        /* Remove underline from all links inside .black */
+        .black a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .black a:hover {
+            color: #62BAE0;
+        }
     </style>
 </head>
 <body>
+    <!-- Home link in top left -->
+    <a id="homeLink" class="black" href="https://crabamongspies.github.io/">Home</a>
+    
+    <div id="centerContent">
+        <p><a class="black archive" href="#">Archive</a></p>
+        <p><a class="black" href="https://crabamongspies.github.io/artwork/healer.png">Healer</a></p>
+    </div>
+
     <script>
         var canvas = document.body.appendChild(document.createElement('canvas')),
             context = canvas.getContext('2d');
@@ -50,33 +124,10 @@
             stripX[i] = Math.random() * canvas.width;
             stripY[i] = -Math.random() * canvas.height; // Start offscreen
             stripFontSize[i] = Math.random() * 8 + 6;  // Reduced font size
-            dY[i] = (Math.random() * 7 + 3) * (10 / stripFontSize[i]); // Speed based on font size
+            dY[i] = (Math.random() * 3 + 1) * (10 / stripFontSize[i]); // Slower speed
         }
 
         var theColors = ['#62BAE0'];
-
-        // Variables to track mouse position and velocity
-        var lastMouseX = 0, lastMouseY = 0;
-        var mouseSpeed = 0;
-        var lastMouseUpdateTime = 0;
-
-        // Update mouse speed every 50ms instead of on every movement
-        window.addEventListener('mousemove', function (e) {
-            var currentTime = Date.now();
-            if (currentTime - lastMouseUpdateTime < 50) return; // Skip updates faster than 50ms intervals
-
-            var mouseX = e.clientX;
-            var mouseY = e.clientY;
-
-            // Calculate mouse speed (distance moved per frame)
-            var dx = mouseX - lastMouseX;
-            var dy = mouseY - lastMouseY;
-            mouseSpeed = Math.sqrt(dx * dx + dy * dy);
-
-            lastMouseX = mouseX;
-            lastMouseY = mouseY;
-            lastMouseUpdateTime = currentTime;
-        });
 
         function drawStrip(x, y, fontSize) {
             for (var k = 0; k < 4; k++) {  // Limiting to 4 characters per strip
@@ -90,9 +141,6 @@
         function draw() {
             context.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Adjust the rain speed based on the mouse speed
-            var speedFactor = 1 + (mouseSpeed / 100);  // The faster the mouse, the faster the rain
-
             // Draw the text strips with the custom font
             for (var j = 0; j < stripCount; j++) {
                 context.font = stripFontSize[j] + 'px CustomFont'; // Use the custom font
@@ -104,12 +152,12 @@
                     stripX[j] = Math.random() * canvas.width;
                     stripY[j] = -Math.random() * canvas.height; // Ensure it starts off-screen
                     stripFontSize[j] = Math.random() * 8 + 6; // Keep the smaller font size
-                    dY[j] = (Math.random() * 7 + 3) * (10 / stripFontSize[j]); // Recalculate speed
+                    dY[j] = (Math.random() * 3 + 1) * (10 / stripFontSize[j]); // Recalculate slower speed
                 }
 
-                // Adjust speed of the rain based on mouse movement
+                // Draw the strips
                 drawStrip(stripX[j], stripY[j], stripFontSize[j]);
-                stripY[j] += dY[j] * speedFactor;  // Multiply dY by the speed factor
+                stripY[j] += dY[j];  // Keep the slower speed
             }
 
             requestAnimationFrame(draw); // Keep animating
