@@ -14,38 +14,24 @@
         body {
             font-family: 'Undertale Sans';
             font-size: 32px;
-            background-color: #3E4637;
+            background-color: #000000;
             margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: flex-start; 
             padding: 20px;
+            color: #ffffff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
         }
 
         .text-container {
-            width: 300px; 
-            position: relative;
-            padding: 2em;
-            background-color: #4C5844;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #4C5844;
+            display: inline-block;
+            padding: 0 2em;
             text-align: center;
             margin-right: 20px;
+            margin-bottom: 20px;
             flex-shrink: 0;
-        }
-
-        .image-container {
-            flex: 1;
-            padding: 2em;
-            background-color: #4C5844;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #4C5844;
-            text-align: center;
-            display: none; 
-            overflow-y: auto;
-            max-height: 100vh;
+            box-sizing: border-box;
         }
 
         .text-container h2,
@@ -53,43 +39,47 @@
         .text-container a,
         .text-container .category {
             margin: 0.5em 0;
-            color: #ffffff;
         }
 
         .text-container a {
             text-decoration: none;
         }
 
-        .text-container a.purple {
-            color: black;
+        .text-container a.black {
+            color: white;
         }
 
-        .image-container img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 1em;
+        .youtube-link {
+            color: red; /* Red color for YouTube */
+            margin-right: 10px; /* Space between links */
         }
 
-        #game-category {
-            display: none; 
-            margin-top: 20px;
+        .github-link {
+            color: grey; /* Grey color for GitHub */
+        }
+
+        .links-container {
+            display: inline-block;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<div class="text-container">
-    <p>Crabamongspies</p>
-    <p>If you need help with my work contact me on Discord or <a href="mailto:crabamongspies@gmail.com">E-✉️</a></p>
-    <p>This is my website dedicated to my artwork and video games</p>
+    <!-- Updated content with YouTube in red and GitHub in grey -->
+    <div class="text-container">
+        <p>Crabamongspies</p>
+        <p class="links-container">
+            <a href="https://www.youtube.com/@crabamongspies" class="youtube-link" target="_blank">YouTube</a>
+        </p> <!-- YouTube in red and GitHub in grey on the same line -->
+        <p>If you need help with my work contact me on Discord or <a href="mailto:crabamongspies@gmail.com">Email</a></p>
+        <p>This is my website dedicated to my artwork and video games</p>
 
-    <div class="category">Games</div>
-    <p><a class="purple" href="/woth/">Will of the Healer</a></p>
-    </p>
+        <div class="category">Games</div>
+        <p><a class="black" href="/woth/">Will of the Healer</a></p>
 
-    <div class="category">Artwork</div>
-    <p><a class="purple" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
-    <p><a class="purple" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
-</div>
+        <div class="category">Artwork</div>
+        <p><a class="black" href="/artwork/Are%20we%20alive.png">Are we alive?</a></p>
+        <p><a class="black" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
     </div>
 </body>
 </html>
