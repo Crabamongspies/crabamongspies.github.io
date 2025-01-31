@@ -39,7 +39,6 @@
         .text-container a,
         .text-container .category {
             margin: 0.5em 0;
-
         }
 
         .text-container a {
@@ -55,7 +54,7 @@
             margin-right: 10px; /* Space between links */
         }
 
-        .rain {
+        .archive {
             color: skyblue;
         }
 
@@ -66,12 +65,28 @@
     </style>
 </head>
 <body>
-    <!-- Updated content with YouTube in red and GitHub in grey -->
+    <!-- Audio element to play and loop music.wav -->
+    <audio id="background-music" autoplay loop>
+        <source src="/music.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Check if the audio element plays successfully
+        const audio = document.getElementById('background-music');
+        audio.onerror = function() {
+            if (!window.audioErrorLogged) {
+                console.error("Error: music.wav could not be loaded or played.");
+                window.audioErrorLogged = true;
+            }
+        };
+    </script>
+
     <div class="text-container">
         <p>Crabs Grotto</p>
         <p class="links-container">
             <a href="https://www.youtube.com/@crabamongspies" class="youtube-link" target="_blank">YouTube</a>
-        </p> <!-- YouTube in red and GitHub in grey on the same line -->
+        </p>
         <p>If you need help with my work contact me on Discord or <a href="mailto:crabamongspies@gmail.com">Email</a></p>
         <p>Welcome to my website, where I showcase my artwork and video games!</p>
 
@@ -83,7 +98,7 @@
         <p><a class="black" href="/artwork/Staring%20Death%20in%20the%20face.png">Staring Death in the face</a></p>
 
         <div class="category">Other</div>
-        <p><a class="rain" href="/archive">Archive</a></p>
+        <p><a class="archive" href="/archive">Archive</a></p>
     </div>
 </body>
 </html>
