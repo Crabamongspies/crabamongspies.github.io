@@ -65,22 +65,6 @@
     </style>
 </head>
 <body>
-    <!-- Audio element to play and loop music.wav -->
-    <audio id="background-music" autoplay loop>
-        <source src="/music.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        // Wait 0.5 seconds before playing the audio and set the volume to 50%
-        window.onload = function() {
-            const audio = document.getElementById('background-music');
-            setTimeout(function() {
-                audio.volume = 0.5; // Set volume to 50%
-                audio.play(); // Play the audio after 0.5 seconds
-            }, 500);
-        };
-    </script>
 
     <div class="text-container">
         <p>Crabs Grotto</p>
