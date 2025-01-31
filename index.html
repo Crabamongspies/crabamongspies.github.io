@@ -72,13 +72,13 @@
     </audio>
 
     <script>
-        // Check if the audio element plays successfully
-        const audio = document.getElementById('background-music');
-        audio.onerror = function() {
-            if (!window.audioErrorLogged) {
-                console.error("Error: music.wav could not be loaded or played.");
-                window.audioErrorLogged = true;
-            }
+        // Wait 0.5 seconds before playing the audio and set the volume to 50%
+        window.onload = function() {
+            const audio = document.getElementById('background-music');
+            setTimeout(function() {
+                audio.volume = 0.5; // Set volume to 50%
+                audio.play(); // Play the audio after 0.5 seconds
+            }, 500);
         };
     </script>
 
