@@ -44,7 +44,8 @@
 
         .supporter-link {
             text-decoration: none;
-            color: blueviolet;
+            color: #F86754;
+            font-size: 28px;
         }
 
         @keyframes rainbow {
@@ -60,7 +61,6 @@
 
         .omega-tier {
             text-decoration: none;
-            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,7 +81,6 @@
             const response = await fetch(`https://api.github.com/gists/${gistId}`);
             const gistData = await response.json();
             
-            // Get the first file from the Gist
             const fileKey = Object.keys(gistData.files)[0];
             const fileContent = gistData.files[fileKey].content;
 
@@ -95,12 +94,13 @@
 
     <div class="text-container">
         <p>SUPPORTER WALL</p>
-        <div class="omega-tier">
-        <a class="supporter-link" href="https://www.patreon.com/c/crabamongspies/membership">My Patreon</a>
-        </div>
         <pre id="supportersContent">loading...</pre>
         <br>
         <a class="omega-tier" href="https://crabamongspies.github.io/">BACK</a>
+        <br>
+        <div class="omega-tier">
+        <a class="supporter-link" href="https://www.patreon.com/c/crabamongspies/membership">My Patreon</a>
+        </div>
     </div>
 
 </body>
