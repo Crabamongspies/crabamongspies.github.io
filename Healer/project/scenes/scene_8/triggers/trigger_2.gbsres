@@ -1,0 +1,58 @@
+{
+  "_resourceType": "trigger",
+  "id": "2a195b81-1c09-4ec7-a166-3a8ed96c0b55",
+  "name": "",
+  "prefabId": "",
+  "x": 9,
+  "y": 9,
+  "symbol": "trigger_4",
+  "prefabScriptOverrides": {},
+  "width": 2,
+  "height": 1,
+  "script": [
+    {
+      "command": "EVENT_ACTOR_SET_SPRITE",
+      "args": {
+        "actorId": "$self$",
+        "spriteSheetId": "daf95270-e30d-423b-9ee7-990ae29f57f6"
+      },
+      "id": "9700805d-59bf-4959-95dc-e08c8ba736a8"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "Happy new year 2005\nwe will be celbrati-"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "d1667f8d-38dc-4195-86ca-b72c9d5e8a7a"
+    }
+  ],
+  "leaveScript": [
+    {
+      "command": "EVENT_ACTOR_SET_SPRITE",
+      "args": {
+        "actorId": "$self$",
+        "spriteSheetId": "19ca6ccd-b6ec-4f97-8365-1679161e7fe4"
+      },
+      "id": "79df916b-a4a0-462d-a7b4-9f4ba390953c"
+    }
+  ],
+  "_index": 1
+}

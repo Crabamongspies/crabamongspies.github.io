@@ -1,0 +1,88 @@
+{
+  "_resourceType": "scene",
+  "id": "efc2e226-ff94-4fcb-802a-86b3f0d021dd",
+  "_index": 3,
+  "name": "ACT2-1",
+  "backgroundId": "2c368894-fb08-49a8-9a1b-ab4b15cb33f8",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "0065+0f7+00d+0f7+00d+0f2+003+0f2+00d+0f2+003+0f2+00d+0f2+003+0f2+00d+0f2+003+0f2+00d+0f2+003+0f2+00d+0f2+003+0fe+00!0f2+003+0fe+00!0f2+0012+0f2+0012+0f2+0012+0f13+",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_5",
+  "x": 304,
+  "y": 304,
+  "script": [
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "Day 41\nmy eyes are heavy\nand my guilt breathes\nHeavier"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "b51c14d1-c773-4e24-9a24-9f3927abc339"
+    },
+    {
+      "command": "EVENT_ACTOR_MOVE_CANCEL",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "ce550806-c5a7-4e63-b1c1-afcb1f663ed9"
+    },
+    {
+      "command": "EVENT_PALETTE_SET_UI",
+      "args": {
+        "palette": "default-bg-1"
+      },
+      "id": "3e21d545-1d4b-494e-97cd-38026d45eefa"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "Steven already beat me\n          to school",
+          "    I have to catch up"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 3,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "be1a4f28-c8eb-4b6b-a283-537a7852ab68"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

@@ -1,0 +1,143 @@
+{
+  "_resourceType": "scene",
+  "id": "5a05d356-7919-484b-bc3d-9602e635b123",
+  "_index": 6,
+  "name": "Scene 7",
+  "backgroundId": "e7007090-7b3b-4f34-ac00-97c90223f5fa",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "006+0f3+002+0f3+00c+0f8+00c+0f8+00c+0f8+0011e+",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_7",
+  "x": 136,
+  "y": 472,
+  "script": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "5f8a5b1f-75b4-42e8-bc46-acb8e44cda4c"
+    },
+    {
+      "command": "EVENT_PALETTE_SET_UI",
+      "args": {
+        "palette": "default-bg-2"
+      },
+      "id": "6ab1c99c-caeb-4ae7-8848-bf7469e6b414"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "       ACT 2\n-NIGHT TERRORS-"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 3,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "c77abe8f-4441-4b6c-887d-0f3ad892498c"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "On september 1 1998",
+          "A new baby boy was born",
+          "and one life was lost"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "aeb2e971-acb7-47ff-85fe-a606256d9149"
+    },
+    {
+      "command": "EVENT_PALETTE_SET_UI",
+      "args": {
+        "palette": "default-bg-1"
+      },
+      "id": "7ef99911-3ac2-4d9e-8552-a6a0bab242a8"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "If they didnt bring\nmy brother back",
+          "dad would \nstill be alive",
+          "now i sit here on \nmy deathbed",
+          "drinking my pain away\ntill its gone forever",
+          "he needs to be punished \n  for what he has done"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "68acc176-5f1d-4e37-971a-0f8ec22a9580"
+    },
+    {
+      "command": "EVENT_SWITCH_SCENE",
+      "args": {
+        "sceneId": "a4a34915-7567-4090-bee1-b1b07214c699",
+        "x": {
+          "type": "number",
+          "value": 6
+        },
+        "y": {
+          "type": "number",
+          "value": 13
+        },
+        "direction": "up",
+        "fadeSpeed": 4
+      },
+      "id": "fd0ab073-823b-4ccc-9c7c-dba4c211ed91"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "playerSpriteSheetId": ""
+}

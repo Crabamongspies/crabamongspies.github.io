@@ -1,0 +1,99 @@
+{
+  "_resourceType": "scene",
+  "id": "70f85efa-dbca-4cc6-bc85-1dcc7a5faf85",
+  "_index": 2,
+  "name": "TITLE",
+  "backgroundId": "54e3023d-baca-442d-9243-a02746c3a3a2",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "007+0f!004+0f!00e+0f6+00147+",
+  "autoFadeSpeed": 2,
+  "symbol": "scene_4",
+  "x": 304,
+  "y": 136,
+  "script": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "b81b882f-9882-4bfb-96fb-e93bbe964394"
+    },
+    {
+      "command": "EVENT_WAIT",
+      "args": {
+        "time": 1,
+        "frames": 30
+      },
+      "id": "376253ef-333a-464f-aa29-85b4afc61391"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "  HEALER EPISODE 1\n      ----HATE----",
+          "           ACT 1\n        -LINEAR-",
+          "  -- You are Johnny --\n       17 years old",
+          "you live with your little\n     brother Steven",
+          "your mother is in the \nhospital"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 8,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "any",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30,
+        "__collapse": false
+      },
+      "id": "0df016d2-ae74-4e1d-b1fe-02422af7fcef"
+    },
+    {
+      "command": "EVENT_CAMERA_SHAKE",
+      "args": {
+        "time": 0.2,
+        "frames": 30,
+        "shakeDirection": "horizontal",
+        "magnitude": {
+          "type": "number",
+          "value": 4
+        }
+      },
+      "id": "23d3610a-6555-4b69-bdab-13a9ccd7e6fc"
+    },
+    {
+      "command": "EVENT_SWITCH_SCENE",
+      "args": {
+        "sceneId": "f5d13263-780b-4f41-a83e-80d2f48f0159",
+        "x": {
+          "type": "number",
+          "value": 9
+        },
+        "y": {
+          "type": "number",
+          "value": 4
+        },
+        "direction": "down",
+        "fadeSpeed": 3
+      },
+      "id": "8ca62c48-e8ff-4790-8cb6-5f0d6a0ecdea"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "playerSpriteSheetId": "26def3e9-a6e3-4548-a1c0-cb8bdc215725"
+}

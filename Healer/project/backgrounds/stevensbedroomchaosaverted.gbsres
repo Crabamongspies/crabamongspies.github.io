@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "74c80022-90d6-4007-a409-57e467d212d9",
+  "name": "stevensbedroomchaosaverted",
+  "symbol": "bg_stevensbedroomchaosavert",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "stevensbedroomchaosaverted.png",
+  "tileColors": "04168+",
+  "autoColor": false
+}
