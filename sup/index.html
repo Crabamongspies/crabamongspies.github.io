@@ -8,11 +8,10 @@
     <style>
         @font-face {
             font-family: 'Determination Mono';
-            src: url('font.ttf') format('truetype'); /* Ensure the file name matches the font file */
+            src: url('font.ttf') format('truetype');
             font-display: swap;
         }
 
-        /* Apply Determination Mono font to all text */
         body {
             font-family: 'Determination Mono', monospace;
             font-size: 32px;
@@ -21,12 +20,27 @@
             padding: 20px;
             color: #ffffff;
             display: flex;
-            flex-direction: column;
+            justify-content: center; /* Center the content horizontally */
+            align-items: flex-start;
+            height: 100vh; /* Full height for body */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            text-align: center;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content vertically */
+            max-width: 80%; /* Limit the width */
+            width: 100%;
+        }
+
+        .left-embed {
+            width: 380px;
+            height: 498px;
+            margin-top: 20px; /* Space between main content and iframe */
         }
 
         .text-container {
@@ -67,7 +81,6 @@
             gap: 10px;
         }
 
-        /* Ensure the text loaded from the Gist uses the same font */
         #supportersContent {
             font-family: 'Determination Mono', monospace;
             text-decoration: none;
@@ -92,14 +105,20 @@
 </head>
 <body>
 
-    <div class="text-container">
-        <p>SUPPORTER WALL</p>
-        <pre id="supportersContent">loading...</pre>
-        <br>
-        <a class="omega-tier" href="https://crabamongspies.github.io/">BACK</a>
-        <br>
-        <div class="omega-tier">
-        <a class="supporter-link" href="https://www.patreon.com/c/crabamongspies/membership">My Patreon</a>
+    <div class="main-container">
+        <div class="text-container">
+            <p>SUPPORTER WALL</p>
+            <pre id="supportersContent">loading...</pre>
+            <br>
+            <a class="omega-tier" href="https://crabamongspies.github.io/">BACK</a>
+            <br>
+            <div class="omega-tier">
+                <a class="supporter-link" href="https://www.patreon.com/c/crabamongspies/membership">My Patreon</a>
+            </div>
+        </div>
+
+        <div class="left-embed">
+            <iframe src="omsup.html" width="380" height="498" style="border:none;"></iframe>
         </div>
     </div>
 
