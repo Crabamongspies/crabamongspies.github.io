@@ -21,13 +21,11 @@
             display: block;
         }
 
-        /* Load the custom font from the same folder */
         @font-face {
             font-family: 'CustomFont';
             src: url('font.ttf') format('truetype');
         }
 
-        /* Home link in the top left */
         #homeLink {
             position: absolute;
             top: 5px;
@@ -36,14 +34,13 @@
             font-family: 'CustomFont', monospace;
             color: white;
             text-decoration: none;
-            z-index: 20; /* Ensure the link is on top of other content */
+            z-index: 20;
         }
 
         #homeLink:hover {
-            color: #62BAE0; /* Hover effect */
+            color: #62BAE0;
         }
 
-        /* Styling the content */
         #centerContent {
             position: absolute;
             top: 50%;
@@ -86,7 +83,6 @@
             padding: 0;
         }
 
-        /* Remove underline from all links inside .black */
         .black a {
             text-decoration: none;
             color: #ffffff;
@@ -115,7 +111,6 @@
             context = canvas.getContext('2d');
         context.globalCompositeOperation = 'lighter';
 
-        // Resize the canvas to fit the window
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -127,18 +122,17 @@
         var textStrip = ['R', 'A', 'I', 'N'];
         var stripCount = 256, stripX = [], stripY = [], dY = [], stripFontSize = [];
 
-        // Pre-calculate values for strips once
         for (var i = 0; i < stripCount; i++) {
             stripX[i] = Math.random() * canvas.width;
-            stripY[i] = -Math.random() * canvas.height; // Start offscreen
-            stripFontSize[i] = Math.random() * 8 + 6;  // Reduced font size
-            dY[i] = (Math.random() * 3 + 1) * (10 / stripFontSize[i]); // Slower speed
+            stripY[i] = -Math.random() * canvas.height;
+            stripFontSize[i] = Math.random() * 8 + 6;
+            dY[i] = (Math.random() * 3 + 1) * (10 / stripFontSize[i]);
         }
 
         var theColors = ['#62BAE0'];
 
         function drawStrip(x, y, fontSize) {
-            for (var k = 0; k < 4; k++) {  // Limiting to 4 characters per strip
+            for (var k = 0; k < 4; k++) {
                 var randChar = textStrip[Math.floor(Math.random() * textStrip.length)];
                 context.fillStyle = theColors[Math.min(k, theColors.length - 1)];
                 context.fillText(randChar, x, y);
@@ -155,20 +149,19 @@
                 context.textBaseline = 'top';
                 context.textAlign = 'center';
 
-                // Reset position when it moves off the screen
                 if (stripY[j] > canvas.height + 100) {
                     stripX[j] = Math.random() * canvas.width;
-                    stripY[j] = -Math.random() * canvas.height; // Ensure it starts off-screen
-                    stripFontSize[j] = Math.random() * 8 + 6; // Keep the smaller font size
-                    dY[j] = (Math.random() * 3 + 1) * (10 / stripFontSize[j]); // Recalculate slower speed
+                    stripY[j] = -Math.random() * canvas.height;
+                    stripFontSize[j] = Math.random() * 8 + 6;
+                    dY[j] = (Math.random() * 3 + 1) * (10 / stripFontSize[j]);
                 }
 
                 // Draw the strips
                 drawStrip(stripX[j], stripY[j], stripFontSize[j]);
-                stripY[j] += dY[j];  // Keep the slower speed
+                stripY[j] += dY[j];
             }
 
-            requestAnimationFrame(draw); // Keep animating
+            requestAnimationFrame(draw);
         }
 
         draw(); // Start the animation
