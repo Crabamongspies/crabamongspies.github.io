@@ -12,6 +12,17 @@
             font-display: swap;
         }
 
+        @keyframes rainbow-border {
+            0% { border-color: red; }
+            14% { border-color: orange; }
+            28% { border-color: yellow; }
+            42% { border-color: green; }
+            57% { border-color: blue; }
+            71% { border-color: indigo; }
+            85% { border-color: violet; }
+            100% { border-color: red; }
+        }
+
         body {
             font-family: 'Undertale Sans', monospace;
             font-size: 32px;
@@ -42,14 +53,10 @@
             margin-bottom: 20px;
         }
 
-        .text-container p {
-            margin: 0.5em 0;
-        }
-
         .supporter-link {
             text-decoration: none;
-            color: #F86754;
             font-size: 28px;
+            color: #ffffff;
         }
 
         @keyframes rainbow {
@@ -69,6 +76,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
+            color: #ffffff;
         }
 
         #supportersContent {
@@ -86,7 +94,7 @@
         }
 
         .patreon-tier {
-            border: 4px solid #F86754;
+            border: 4px solid;
             padding: 10px;
             border-radius: 10px;
             text-align: center;
@@ -94,6 +102,7 @@
             background-color: #000000;
             font-size: 28px;
             user-select: none;
+            animation: rainbow-border 10s linear infinite;
         }
 
         .patreon-tier img {
@@ -117,14 +126,12 @@
 
         window.onload = loadSupporters;
 
-        // Disable Right-Click on Images
         document.addEventListener("contextmenu", function (event) {
             if (event.target.tagName === "IMG") {
                 event.preventDefault();
             }
         });
 
-        // Disable Dragging Images
         document.addEventListener("dragstart", function (event) {
             if (event.target.tagName === "IMG") {
                 event.preventDefault();
