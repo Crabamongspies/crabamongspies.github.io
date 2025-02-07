@@ -1,142 +1,115 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="icon.png">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
     <title>Will of the Healer</title>
-    <meta name="crabamongspies" content="crabamongspies" />
+    <meta name="crabamongspies" content="crabamongspies">
     <style>
-      body {
-        background-color: #000000;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* Style for the Home link */
-      #home-link {
-        font-family: 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
-        color: #00FF00;
-        font-weight: bold;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        font-size: 1.2em;
-        z-index: 9999;
-        cursor: pointer;
-        text-decoration: none;
-      }
-
-      /* Ensuring the game content is behind the overlay */
-      #game, #controller {
-        z-index: 1;
-      }
-
-      /* Style for control instructions */
-      #controls {
-        font-family: 'Courier New', Courier, monospace, 'Pixelite', sans-serif;
-        color: #00FF00;
-        font-weight: bold;
-        position: fixed;
-        top: 40px;
-        left: 10px;
-        font-size: 1em;
-        z-index: 9999;
-      }
-
-      /* Hide control hint on mobile */
-      @media (max-width: 768px) {
-        #controls {
-          display: none;
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
         }
-      }
-    </style>
-  </head>
-  <body>
-    <a id="home-link" href="https://crabamongspies.github.io/">Home</a>
 
+        #home-link, #controls {
+            font-family: 'Courier New', Courier, monospace;
+            color: #00FF00;
+            font-weight: bold;
+            position: fixed;
+            left: 10px;
+            z-index: 9999;
+        }
+
+        #home-link {
+            top: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        #controls {
+            top: 40px;
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            #controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a id="home-link" href="https://crabamongspies.github.io/">Home</a>
     <div id="controls">
-      <p>Z - Select</p>
-      <p>X - Secondary Select</p>
-      <p>Use arrow keys or gamepad to move</p>
+        <p>Z - Select</p>
+        <p>X - Secondary Select</p>
+        <p>Use arrow keys or gamepad to move</p>
     </div>
 
     <div id="game">
-      <canvas id="mainCanvas" width="320" height="288">No Canvas Support</canvas>
+        <canvas id="mainCanvas" width="320" height="288">No Canvas Support</canvas>
     </div>
+
     <div id="controller">
-      <div id="controller_dpad">
-        <div id="controller_left"></div>
-        <div id="controller_right"></div>
-        <div id="controller_up"></div>
-        <div id="controller_down"></div>
-      </div>
-      <div id="controller_select" class="capsuleBtn">Select</div>
-      <div id="controller_start" class="capsuleBtn">Start</div>
-      <div id="controller_b" class="roundBtn">B</div>
-      <div id="controller_a" class="roundBtn">A</div>
-    </div>      
+        <div id="controller_dpad">
+            <div id="controller_left"></div>
+            <div id="controller_right"></div>
+            <div id="controller_up"></div>
+            <div id="controller_down"></div>
+        </div>
+        <div id="controller_select" class="capsuleBtn">Select</div>
+        <div id="controller_start" class="capsuleBtn">Start</div>
+        <div id="controller_b" class="roundBtn">B</div>
+        <div id="controller_a" class="roundBtn">A</div>
+    </div>
+
     <script>
-      const customControls = {"up":["ArrowUp"],"down":["ArrowDown"],"left":["ArrowLeft"],"right":["ArrowRight"],"a":["z"],"b":["x"],"start":["Enter"],"select":["Shift"]};
+        const customControls = {
+            "up": ["ArrowUp"], "down": ["ArrowDown"],
+            "left": ["ArrowLeft"], "right": ["ArrowRight"],
+            "a": ["z"], "b": ["x"], "start": ["Enter"], "select": ["Shift"]
+        };
 
-      let gamepadIndex = null;
-      let stopGamepadCheck = false;
+        let gamepadIndex = null, stopGamepadCheck = false;
 
-      function updateGamepad() {
-        if (stopGamepadCheck) return; // Stop polling if the timer expired
+        function handleGamepadInput(gp) {
+            const buttons = gp.buttons;
+            const axes = gp.axes;
+            const keyMap = {
+                0: "z", 1: "x", 9: "Enter", 8: "Shift"
+            };
 
-        const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-        const gp = gamepads[gamepadIndex];
-        if (!gp) return;
+            Object.entries(keyMap).forEach(([btn, key]) => {
+                if (buttons[btn]?.pressed) document.dispatchEvent(new KeyboardEvent("keydown", { key }));
+            });
 
-        const buttons = gp.buttons;
-        const axes = gp.axes;
-
-        // Map gamepad buttons to custom controls
-        if (buttons[0].pressed) simulateKeyPress("z"); // A button
-        if (buttons[1].pressed) simulateKeyPress("x"); // B button
-        if (buttons[9].pressed) simulateKeyPress("Enter"); // Start button
-        if (buttons[8].pressed) simulateKeyPress("Shift"); // Select button
-
-        // Map D-pad/axes to arrow keys
-        if (axes[0] < -0.5) simulateKeyPress("ArrowLeft");
-        if (axes[0] > 0.5) simulateKeyPress("ArrowRight");
-        if (axes[1] < -0.5) simulateKeyPress("ArrowUp");
-        if (axes[1] > 0.5) simulateKeyPress("ArrowDown");
-
-        requestAnimationFrame(updateGamepad);
-      }
-
-      function simulateKeyPress(key) {
-        const event = new KeyboardEvent("keydown", { key });
-        document.dispatchEvent(event);
-      }
-
-      // Timer to stop checking for gamepads after 10 seconds
-      const timer = setTimeout(() => {
-        if (!gamepadIndex) {
-          stopGamepadCheck = true;
-          console.log("No gamepad detected. Stopping gamepad checks.");
+            if (axes[0] < -0.5) document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft" }));
+            if (axes[0] > 0.5) document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight" }));
+            if (axes[1] < -0.5) document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp" }));
+            if (axes[1] > 0.5) document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown" }));
         }
-      }, 10000);
 
-      window.addEventListener("gamepadconnected", (e) => {
-        gamepadIndex = e.gamepad.index;
-        console.log("Gamepad connected:", e.gamepad);
+        function updateGamepad() {
+            if (stopGamepadCheck || gamepadIndex === null) return;
+            const gp = navigator.getGamepads()[gamepadIndex];
+            if (gp) handleGamepadInput(gp);
+            requestAnimationFrame(updateGamepad);
+        }
 
-        clearTimeout(timer); // Stop the timer if a gamepad connects
-        requestAnimationFrame(updateGamepad);
-      });
+        window.addEventListener("gamepadconnected", (e) => {
+            gamepadIndex = e.gamepad.index;
+            stopGamepadCheck = false;
+            requestAnimationFrame(updateGamepad);
+        });
 
-      window.addEventListener("gamepaddisconnected", () => {
-        console.log("Gamepad disconnected");
-        gamepadIndex = null;
-      });
+        window.addEventListener("gamepaddisconnected", () => gamepadIndex = null);
+
+        setTimeout(() => stopGamepadCheck = (gamepadIndex === null), 10000);
     </script>
+
     <script src="binjgb.js"></script>
     <script src="js/script.js"></script>
     <script src="js/debugger.js"></script>
-  </body>
+</body>
 </html>
